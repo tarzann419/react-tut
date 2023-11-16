@@ -13,7 +13,7 @@ const Home = () => {
     //     console.log('Hello, ' + name + '!')
     // }
 
-    return ( 
+    return (  
         <div className="home">
             <h1>This is the Home Page</h1>
             <p> { name } is { age } years old </p>
