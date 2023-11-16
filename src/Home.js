@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogList from "./BlogList";
 
 const Home = () => {
 
@@ -11,15 +12,8 @@ const Home = () => {
 
     return (  
         <div className="home">
-            {/* for blog in blogs. so we'll use 'blog' to loop through */}
-            { blogs.map( (blog) => (
-                // never forget to add the key property
-                // the key property helps react to keep track of each item renedered to the DOM
-                <div className="blog-preview" key={blog.id}>
-                    <h1> Title: { blog.title } </h1>
-                    <p> Written by: { blog.author } </p>
-                </div>
-            ) ) }
+            {/* using tghe first method to using props */}
+            <BlogList blogs={blogs} />
         </div>
      );
 }
