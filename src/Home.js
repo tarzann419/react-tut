@@ -10,12 +10,16 @@ const Home = () => {
         { title: 'Cake and Lovers', body: 'The white and barren...', author: 'Dan', id: 3 }
     ]);
 
+    const handleDelete = (id) => {
+        const newBlog = blogs.filter( blog => blog.id !== id )
+        setBlogs(newBlog);
+    } 
     return (  
         <div className="home">
             {/* using tghe first method to using props */}
-            <BlogList blogs={blogs} title="All Blogs" />
+            <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
             {/* filtering */}
-            <BlogList blogs={blogs.filter( (blog) => blog.author === 'Dan' )} title="Dan's Blogs" />
+            {/* <BlogList blogs={blogs.filter( (blog) => blog.author === 'Dan' )} title="Dan's Blogs" /> */}
         </div>
      );
 }
