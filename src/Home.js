@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -10,16 +10,27 @@ const Home = () => {
         { title: 'Cake and Lovers', body: 'The white and barren...', author: 'Dan', id: 3 }
     ]);
 
+    const [name, setName] = useState('mario')
+
     const handleDelete = (id) => {
         const newBlog = blogs.filter( blog => blog.id !== id )
         setBlogs(newBlog);
     } 
+
+// runs everytime there is a re-render
+    useEffect(() => {
+        console.log('use effect run')
+    }, [name]);
+
+
     return (  
         <div className="home">
             {/* using tghe first method to using props */}
             <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
             {/* filtering */}
             {/* <BlogList blogs={blogs.filter( (blog) => blog.author === 'Dan' )} title="Dan's Blogs" /> */}
+            <button onClick={() => {setName('luigi')}} >change state</button>
+            <p>{ name }</p>
         </div>
      );
 }
